@@ -1,0 +1,20 @@
+### 제품 가져오기
+GET {{backend}}/products
+Accept: application/json
+
+### 제품 저장
+POST {{backend}}/products
+Content-Type: application/json
+
+{
+  "name": "product",
+  "price": 20.0,
+  "quantity": 10
+}
+
+### 제품 상세
+GET {{backend}}/products/01GMQD7TACZBYDAJGPQ2S6ND7J
+Accept: application/json
+
+### 제품 삭제
+DELETE {{backend}}/products/01GMQCAM3W5H6XZJDZE3SP9TEN

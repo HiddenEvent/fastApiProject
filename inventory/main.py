@@ -11,13 +11,13 @@ app.add_middleware(
     allow_headers=['*']
 )
 
-
 redis = get_redis_connection(
     host="redis-16976.c80.us-east-1-2.ec2.cloud.redislabs.com",
     port="16976",
     password="nw5IYXuZ0xRJ6dzUxGmMaCVBCxyxomo5",
     decode_responses=True
 )
+
 
 class Product(HashModel):
     name: str
@@ -26,9 +26,12 @@ class Product(HashModel):
 
     class Meta:
         database = redis
+
+
 @app.get('/products')
 def all():
     return [format(pk) for pk in Product.all_pks()]
+
 
 def format(pk: str):
     product = Product.get(pk)
@@ -39,20 +42,23 @@ def format(pk: str):
         'price': product.price,
         'quantity': product.quantity
     }
+
+
 @app.post('/products')
 def create(product: Product):
     return product.save()
+
 
 @app.get('/products/{pk}')
 def get(pk: str):
     return Product.get(pk)
 
+
 @app.delete('/products/{pk}')
 def delete(pk: str):
-    product = Product.get(pk)
-    return product.delete()
+    return Product.delete(pk)
 
-@app.get("/")
+
+@app.get('/')
 async def root():
     return {"message": "Hello World"}
-
