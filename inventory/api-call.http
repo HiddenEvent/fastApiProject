@@ -1,9 +1,9 @@
 ### 제품 가져오기
-GET {{backend}}/products
+GET {{backend}}:{{productPort}}/products
 Accept: application/json
 
 ### 제품 저장
-POST {{backend}}/products
+POST {{backend}}:{{productPort}}/products
 Content-Type: application/json
 
 {
@@ -13,8 +13,8 @@ Content-Type: application/json
 }
 
 ### 제품 상세
-GET {{backend}}/products/01GMQD7TACZBYDAJGPQ2S6ND7J
+GET {{backend}}:{{productPort}}/products/01GN72X9D2AR3SJHGZ4XAWMWTW
 Accept: application/json
 
 ### 제품 삭제
-DELETE {{backend}}/products/01GMQCAM3W5H6XZJDZE3SP9TEN
+DELETE {{backend}}:{{productPort}}/products/01GMQCAM3W5H6XZJDZE3SP9TEN

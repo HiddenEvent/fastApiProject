@@ -1,0 +1,8 @@
+### 주문 저장
+POST {{backend}}:{{orderPort}}/orders
+Content-Type: application/json
+
+{
+  "id": "01GN72X9D2AR3SJHGZ4XAWMWTW",
+  "quantity": 2
+}
